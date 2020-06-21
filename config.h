@@ -26,6 +26,7 @@ static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
+<<<<<<< HEAD
 	*/
 	/* class    instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
 	{ "Gimp",      NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
@@ -34,6 +35,7 @@ static const Rule rules[] = {
 	/* { NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 }, */
 	/* { NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 }, */
 };
+
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
@@ -134,11 +136,11 @@ static Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-	{ ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} },
-	{ ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} },
-	{ ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} },
-	{ ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} },
-	{ ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} },
-	{ ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} },
+	/* { ClkStatusText,        0,              Button1,        sigdwmblocks,   {.i = 1} }, */
+	/* { ClkStatusText,        0,              Button2,        sigdwmblocks,   {.i = 2} }, */
+	/* { ClkStatusText,        0,              Button3,        sigdwmblocks,   {.i = 3} }, */
+	/* { ClkStatusText,        0,              Button4,        sigdwmblocks,   {.i = 4} }, */
+	/* { ClkStatusText,        0,              Button5,        sigdwmblocks,   {.i = 5} }, */
+	/* { ClkStatusText,        ShiftMask,      Button1,        sigdwmblocks,   {.i = 6} }, */
 };
 
