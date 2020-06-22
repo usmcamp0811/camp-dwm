@@ -5,23 +5,31 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "IBM Plex Mono:size=12", "Noto Color Emoji:size=12", "monospace:size=12" };
-static const char dmenufont[]       = "IBM Plex Mono:size=12";
+static const char *fonts[]          = { "IBM Plex Mono:size=15", "Noto Color Emoji:size=15", "monospace:size=15" };
+static const char dmenufont[]       = "IBM Plex Mono:size=15";
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const char col_gray1[]       = "#20232a";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#20232a";
+static const char col_alt_black[]   = "#20232a";
+static const char col_black[]       = "#282c34";
+static const char col_red[]         = "#e06c75";
+static const char col_green[]       = "#98c379";
+static const char col_yellow[]      = "#e5c07b";
+static const char col_blue[]        = "#61afef";
+static const char col_cyan[]        = "#c678dd";
+static const char col_teal[]        = "#56b6c2";
+static const char col_gray[]        = "#abb2bf";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeSel]  = { col_gray4, col_alt_black,  col_black  },
 	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
     [SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-    [SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-    [SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]  = { col_gray, col_alt_black,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]  = { col_gray3, col_alt_black,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
@@ -115,6 +123,8 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_r,      quit,           {0} },
 	{ MODKEY,			XK_F2,		spawn,		SHCMD("brave") },
+	{ MODKEY,			XK_F11,		spawn,		SHCMD("~/.local/bin/auto-screen") },
+	{ MODKEY,			XK_F12,		spawn,		SHCMD("~/.local/bin/laptop_screen_toggle") },
         { 0, XF86XK_AudioMute,		spawn,		SHCMD("~/.local/bin/lmc toggle") },
 	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("~/.local/bin/lmc up") },
 	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("~/.local/bin/lmc down") },
