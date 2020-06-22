@@ -40,6 +40,10 @@ static const Rule rules[] = {
 	{ "Gimp",      NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
 	{ "Alacritty", NULL,       NULL,       	    0,            0,           1,         0,        -1 },
         { NULL,        NULL,       "Microsoft Teams Notification",       	    0,            1,           0,         0,        -1 },
+        { NULL,        NULL,       "Sign in to Security Device",       	    0,            1,           0,         0,        -1 },
+        { NULL,        NULL,       "alsamixer",       	    0,            1,           0,         0,        -1 },
+        { "Yad",        NULL,       NULL,       	    0,            1,           0,         0,        -1 },
+        { "Pavucontrol",        NULL,       NULL,       	    0,            1,           0,         0,        -1 },
 	{ NULL,        NULL,       "Event Tester",   0,            0,           0,         1,        -1 },
 	/* { NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 }, */
 	/* { NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 }, */
