@@ -10,8 +10,8 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int focusonwheel       = 0;
-static const char *fonts[]          = { "IBM Plex Mono:size=15", "Noto Color Emoji:size=15", "monospace:size=15" };
-static const char dmenufont[]       = "IBM Plex Mono:size=15";
+static const char *fonts[]          = { "IBM Plex Mono:size=12", "Noto Color Emoji:size=12", "monospace:size=12" };
+static const char dmenufont[]       = "IBM Plex Mono:size=12";
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const char col_gray1[]       = "#20232a";
 static const char col_gray2[]       = "#444444";
@@ -27,14 +27,14 @@ static const char col_cyan[]        = "#c678dd";
 static const char col_teal[]        = "#56b6c2";
 static const char col_gray[]        = "#abb2bf";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_alt_black,  col_black  },
+        	/*               fg         bg         border   */
+	[SchemeNorm]    = { col_gray3, col_gray1, col_gray2 },
+	[SchemeSel]     = { col_gray4, col_alt_black,  col_yellow  },
 	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-    [SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-    [SchemeInfoSel]  = { col_gray, col_alt_black,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-    [SchemeInfoNorm]  = { col_gray3, col_alt_black,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeTagsSel] = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+    [SchemeTagsNorm]    = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+    [SchemeInfoSel]     = { col_gray,  col_alt_black,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+    [SchemeInfoNorm]    = { col_gray3, col_alt_black,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 /* tagging */
@@ -64,13 +64,13 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 #include "fibonacci.c"
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
- 	{ "[@]",      spiral },
- 	{ "[\\]",      dwindle },
+	{ "",      tile },    /* first entry is default */
+ 	{ "",      spiral },
+	{ "侀",      monocle },
+	{ "頻",      centeredmaster },
+	{ "恵",      centeredfloatingmaster },
+ 	{ "拓",      dwindle },
+	{ "",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
 };
 
@@ -94,59 +94,59 @@ static const char *termcmd[]  = { "alacritty", "-t", "Terminal", NULL };
 #include <X11/XF86keysym.h>
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      rotatestack,    {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_f,      togglefullscr,           {0} },
-	{ MODKEY,                       XK_s,      togglesticky,   {0} },
-	{ MODKEY,                       XK_z,      zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY|ControlMask,		XK_comma,  cyclelayout,    {.i = -1 } },
-	{ MODKEY|ControlMask,           XK_period, cyclelayout,    {.i = +1 } },
-	{ MODKEY,			XK_t,		setlayout,	{.v = &layouts[0]} }, /* tile */
-	{ MODKEY|ShiftMask,		XK_t,		setlayout,	{.v = &layouts[1]} }, /* bstack */
-	{ MODKEY,			XK_y,		setlayout,	{.v = &layouts[2]} }, /* spiral */
-	{ MODKEY|ShiftMask,		XK_y,		setlayout,	{.v = &layouts[3]} }, /* dwindle */
-	{ MODKEY,			XK_u,		setlayout,	{.v = &layouts[4]} }, /* deck */
-	{ MODKEY|ShiftMask,		XK_u,		setlayout,	{.v = &layouts[5]} }, /* monocle */
-	{ MODKEY,			XK_i,		setlayout,	{.v = &layouts[6]} }, /* centeredmaster */
-	{ MODKEY|ShiftMask,		XK_i,		setlayout,	{.v = &layouts[7]} }, /* centeredfloatingmaster */
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_r,      quit,           {0} },
-	{ MODKEY,			XK_F2,		spawn,		SHCMD("brave") },
-	{ MODKEY,			XK_F11,		spawn,		SHCMD("~/.local/bin/auto-screen") },
-	{ MODKEY,			XK_F12,		spawn,		SHCMD("~/.local/bin/laptop_screen_toggle") },
-        { 0, XF86XK_AudioMute,		spawn,		SHCMD("~/.local/bin/lmc toggle") },
-	{ 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("~/.local/bin/lmc up") },
-	{ 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("~/.local/bin/lmc down") },
-	{ 0, XF86XK_MonBrightnessUp,	spawn,		SHCMD("~/.local/bin/backlight +") },
-	{ 0, XF86XK_MonBrightnessDown,	spawn,		SHCMD("~/.local/bin/backlight -") },
-	{ Mod4Mask,                  XK_l,           spawn,		SHCMD("i3lock-fancy") },
+	{ MODKEY,                             XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                             XK_b,      togglebar,      {0} },
+	{ MODKEY,                             XK_j,      focusstack,     {.i = +1 } },
+	{ MODKEY,                             XK_k,      focusstack,     {.i = -1 } },
+	{ MODKEY|ShiftMask,                   XK_j,      rotatestack,    {.i = +1 } },
+	{ MODKEY|ShiftMask,                   XK_k,      rotatestack,    {.i = -1 } },
+	{ MODKEY|ShiftMask,                   XK_i,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,                   XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                             XK_h,      setmfact,       {.f = -0.05} },
+	{ MODKEY,                             XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY,                             XK_f,      togglefullscr,           {0} },
+	{ MODKEY,                             XK_s,      togglesticky,   {0} },
+	{ MODKEY,                             XK_z,      zoom,           {0} },
+	{ MODKEY,                             XK_Tab,    view,           {0} },
+	{ MODKEY|ShiftMask,                   XK_q,      killclient,     {0} },
+	{ MODKEY,                             XK_space,  setlayout,      {0} },
+	{ MODKEY|ShiftMask,                   XK_space,  togglefloating, {0} },
+	{ MODKEY,                             XK_0,      view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,                   XK_0,      tag,            {.ui = ~0 } },
+	{ MODKEY,                             XK_comma,  focusmon,       {.i = -1 } },
+	{ MODKEY,                             XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,                   XK_comma,  tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,                   XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY|ControlMask,                 XK_comma,  cyclelayout,    {.i = -1 } },
+	{ MODKEY|ControlMask,                 XK_period, cyclelayout,    {.i = +1 } },
+	{ MODKEY,                             XK_t,		setlayout,	{.v = &layouts[0]} }, /* tile */
+	{ MODKEY|ShiftMask,                   XK_t,		setlayout,	{.v = &layouts[1]} }, /* bstack */
+	{ MODKEY,                             XK_y,		setlayout,	{.v = &layouts[2]} }, /* spiral */
+	{ MODKEY|ShiftMask,                   XK_y,		setlayout,	{.v = &layouts[3]} }, /* dwindle */
+	{ MODKEY,                             XK_u,		setlayout,	{.v = &layouts[4]} }, /* deck */
+	{ MODKEY|ShiftMask,                   XK_u,		setlayout,	{.v = &layouts[5]} }, /* monocle */
+	{ MODKEY,                             XK_i,		setlayout,	{.v = &layouts[6]} }, /* centeredmaster */
+	{ MODKEY|ShiftMask,                   XK_i,		setlayout,	{.v = &layouts[7]} }, /* centeredfloatingmaster */
+	TAGKEYS(                        XK_1, 0)
+	TAGKEYS(                        XK_2, 1)
+	TAGKEYS(                        XK_3, 2)
+	TAGKEYS(                        XK_4, 3)
+	TAGKEYS(                        XK_5, 4)
+	TAGKEYS(                        XK_6, 5)
+	TAGKEYS(                        XK_7, 6)
+	TAGKEYS(                        XK_8, 7)
+	TAGKEYS(                        XK_9, 8)
+	{ MODKEY|ShiftMask,                   XK_r,      quit,           {0} },
+	{ MODKEY,                             XK_F2,		spawn,		SHCMD("brave") },
+	{ MODKEY,                             XK_F11,		spawn,		SHCMD("~/.local/bin/auto-screen") },
+	{ MODKEY,                             XK_F12,		spawn,		SHCMD("~/.local/bin/laptop_screen_toggle") },
+        { 0,                                  XF86XK_AudioMute,		spawn,		SHCMD("~/.local/bin/lmc toggle") },
+	{ 0,                                  XF86XK_AudioRaiseVolume,	spawn,		SHCMD("~/.local/bin/lmc up") },
+	{ 0,                                  XF86XK_AudioLowerVolume,	spawn,		SHCMD("~/.local/bin/lmc down") },
+	{ 0,                                  XF86XK_MonBrightnessUp,	spawn,		SHCMD("~/.local/bin/backlight +") },
+	{ 0,                                  XF86XK_MonBrightnessDown,	spawn,		SHCMD("~/.local/bin/backlight -") },
+	{ Mod4Mask,                           XK_l,           spawn,		SHCMD("i3lock-fancy") },
 };
 
 /* button definitions */
