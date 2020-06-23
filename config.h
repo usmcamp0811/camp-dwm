@@ -9,6 +9,7 @@ static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows sel
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
+static const int focusonwheel       = 0;
 static const char *fonts[]          = { "IBM Plex Mono:size=15", "Noto Color Emoji:size=15", "monospace:size=15" };
 static const char dmenufont[]       = "IBM Plex Mono:size=15";
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
