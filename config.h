@@ -43,6 +43,8 @@ static const Rule rules[] = {
 	/* class    instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
 	{ "Gimp",      NULL,       NULL,       	    1 << 8,       0,           0,         0,        -1 },
 	{ "Alacritty", NULL,       NULL,       	    0,            0,           1,         0,        -1 },
+	{ NULL, "Alacritty",       NULL,       	    0,            0,           1,         0,        -1 },
+	{ NULL, NULL,       "Terminal",       	    0,            0,           1,         0,        -1 },
         { NULL,        NULL,       "Microsoft Teams Notification",       	    0,            1,           0,         0,        -1 },
         { NULL,        NULL,       "Sign in to Security Device",       	    0,            1,           0,         0,        -1 },
         { NULL,        NULL,       "alsamixer",       	    0,            1,           0,         0,        -1 },
