@@ -70,6 +70,8 @@ static const Layout layouts[] = {
 	{ "頻",      centeredmaster },
 	{ "恵",      centeredfloatingmaster },
  	{ "拓",      dwindle },
+	{ "",      bstack },
+	{ "",      bstackhoriz },
 	{ "",      NULL },    /* no layout function means floating behavior */
 	{ NULL,       NULL },
 };
