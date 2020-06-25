@@ -123,13 +123,13 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,                 XK_comma,  cyclelayout,    {.i = -1 } },
 	{ MODKEY|ControlMask,                 XK_period, cyclelayout,    {.i = +1 } },
 	{ MODKEY,                             XK_t,		setlayout,	{.v = &layouts[0]} }, /* tile */
-	{ MODKEY|ShiftMask,                   XK_t,		setlayout,	{.v = &layouts[1]} }, /* bstack */
-	{ MODKEY,                             XK_y,		setlayout,	{.v = &layouts[2]} }, /* spiral */
-	{ MODKEY|ShiftMask,                   XK_y,		setlayout,	{.v = &layouts[3]} }, /* dwindle */
-	{ MODKEY,                             XK_u,		setlayout,	{.v = &layouts[4]} }, /* deck */
-	{ MODKEY|ShiftMask,                   XK_u,		setlayout,	{.v = &layouts[5]} }, /* monocle */
-	{ MODKEY,                             XK_i,		setlayout,	{.v = &layouts[6]} }, /* centeredmaster */
-	{ MODKEY|ShiftMask,                   XK_i,		setlayout,	{.v = &layouts[7]} }, /* centeredfloatingmaster */
+	{ MODKEY|ShiftMask,                   XK_t,		setlayout,	{.v = &layouts[1]} }, /* spiral */
+	{ MODKEY,                             XK_y,		setlayout,	{.v = &layouts[5]} }, /* dwindle */
+	{ MODKEY|ShiftMask,                   XK_y,		setlayout,	{.v = &layouts[3]} }, /* centeredmaster */
+	{ MODKEY,                             XK_u,		setlayout,	{.v = &layouts[4]} }, /* centeredfloatingmaster */
+	{ MODKEY|ShiftMask,                   XK_u,		setlayout,	{.v = &layouts[2]} }, /* monocle */
+	{ MODKEY,                             XK_i,		setlayout,	{.v = &layouts[6]} }, /* bstack */
+	{ MODKEY|ShiftMask,                   XK_i,		setlayout,	{.v = &layouts[7]} }, /* bstackhoriz */
 	TAGKEYS(                        XK_1, 0)
 	TAGKEYS(                        XK_2, 1)
 	TAGKEYS(                        XK_3, 2)
@@ -140,7 +140,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8, 7)
 	TAGKEYS(                        XK_9, 8)
 	{ MODKEY|ShiftMask,                   XK_r,      quit,           {0} },
-	{ MODKEY,                             XK_F2,		spawn,		SHCMD("brave") },
+	{ MODKEY,                             XK_F2,		spawn,		SHCMD("firefox") },
 	{ MODKEY,                             XK_F11,		spawn,		SHCMD("~/.local/bin/auto-screen") },
 	{ MODKEY,                             XK_F12,		spawn,		SHCMD("~/.local/bin/laptop_screen_toggle") },
         { 0,                                  XF86XK_AudioMute,		spawn,		SHCMD("~/.local/bin/lmc toggle") },
