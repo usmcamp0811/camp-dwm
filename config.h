@@ -95,6 +95,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "alacritty", "-t", "Terminal", NULL };
 
 #include <X11/XF86keysym.h>
+#include "movestack.c"
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                             XK_d,      spawn,          {.v = dmenucmd } },
@@ -102,10 +103,10 @@ static Key keys[] = {
 	{ MODKEY,                             XK_b,      togglebar,      {0} },
 	{ MODKEY,                             XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                             XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY|ShiftMask,                   XK_j,      rotatestack,    {.i = +1 } },
-	{ MODKEY|ShiftMask,                   XK_k,      rotatestack,    {.i = -1 } },
-	{ MODKEY|ShiftMask,                   XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,                   XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ShiftMask,                   XK_j,      movestack,    {.i = +1 } },
+	{ MODKEY|ShiftMask,                   XK_k,      movestack,    {.i = -1 } },
+	{ MODKEY|ShiftMask,                   XK_i,      rotatestack,     {.i = +1 } },
+	{ MODKEY|ShiftMask,                   XK_d,      rotatestack,     {.i = -1 } },
 	{ MODKEY,                             XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                             XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                             XK_f,      togglefullscr,           {0} },
@@ -130,7 +131,7 @@ static Key keys[] = {
 	{ MODKEY,                             XK_u,		setlayout,	{.v = &layouts[4]} }, /* centeredfloatingmaster */
 	{ MODKEY|ShiftMask,                   XK_u,		setlayout,	{.v = &layouts[2]} }, /* monocle */
 	{ MODKEY,                             XK_i,		setlayout,	{.v = &layouts[6]} }, /* bstack */
-	{ MODKEY|ShiftMask,                   XK_i,		setlayout,	{.v = &layouts[7]} }, /* bstackhoriz */
+	/* { MODKEY|ShiftMask,                   XK_i,		setlayout,	{.v = &layouts[7]} }, /1* bstackhoriz *1/ */
 	TAGKEYS(                        XK_1, 0)
 	TAGKEYS(                        XK_2, 1)
 	TAGKEYS(                        XK_3, 2)
