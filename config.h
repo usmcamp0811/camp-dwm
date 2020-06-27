@@ -141,6 +141,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9, 8)
 	{ MODKEY|ShiftMask,                   XK_r,      quit,           {0} },
 	{ MODKEY,                             XK_F2,		spawn,		SHCMD("firefox") },
+	{ MODKEY,                             XK_r,		spawn,		SHCMD("~/.local/bin/launch-rofi") },
 	{ MODKEY,                             XK_F11,		spawn,		SHCMD("~/.local/bin/auto-screen") },
 	{ MODKEY,                             XK_F12,		spawn,		SHCMD("~/.local/bin/laptop_screen_toggle") },
         { 0,                                  XF86XK_AudioMute,		spawn,		SHCMD("~/.local/bin/lmc toggle") },
