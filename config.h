@@ -10,8 +10,8 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int focusonwheel       = 0;
-static const char *fonts[]          = { "IBM Plex Mono:size=15", "Noto Color Emoji:size=15", "monospace:size=15" };
-static const char dmenufont[]       = "IBM Plex Mono:size=15";
+static const char *fonts[]          = { "IBM Plex Mono:size=12", "Noto Color Emoji:size=12", "monospace:size=12" };
+static const char dmenufont[]       = "IBM Plex Mono:size=12";
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const char col_gray1[]       = "#e06c75";
 static const char col_gray2[]       = "#444444";
@@ -107,6 +107,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,                   XK_k,      movestack,    {.i = -1 } },
 	{ MODKEY|ShiftMask,                   XK_i,      rotatestack,     {.i = +1 } },
 	{ MODKEY|ShiftMask,                   XK_d,      rotatestack,     {.i = -1 } },
+	{ MODKEY,                             XK_equal,      incnmaster,     {.i = +1 } },
+	{ MODKEY,                             XK_minus,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                             XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                             XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                             XK_f,      togglefullscr,           {0} },
