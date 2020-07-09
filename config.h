@@ -39,6 +39,7 @@ static const char *colors[][3]      = {
 
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* class    instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
@@ -109,6 +110,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,                   XK_d,      rotatestack,     {.i = -1 } },
 	{ MODKEY,                             XK_equal,      incnmaster,     {.i = +1 } },
 	{ MODKEY,                             XK_minus,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                             XK_n,      togglealttag,   {0} },
 	{ MODKEY,                             XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                             XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                             XK_f,      togglefullscr,           {0} },
