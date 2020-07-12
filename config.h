@@ -10,8 +10,8 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int focusonwheel       = 0;
-static const char *fonts[]          = { "IBM Plex Mono:size=12", "Noto Color Emoji:size=12", "monospace:size=12" };
-static const char dmenufont[]       = "IBM Plex Mono:size=12";
+static const char *fonts[]          = { "IBM Plex Mono:size=16", "Noto Color Emoji:size=16", "monospace:size=16" };
+static const char dmenufont[]       = "IBM Plex Mono:size=16";
 static const int swallowfloating    = 0;        /* 1 means swallow floating windows by default */
 static const char col_gray1[]       = "#e06c75";
 static const char col_gray2[]       = "#444444";
@@ -38,7 +38,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 static const char *tagsalt[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
