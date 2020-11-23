@@ -56,7 +56,8 @@ static const Rule rules[] = {
         /* julia plot */  
 	{ "gksqt", NULL,       NULL,       	    0,            0,           1,         1,        -1 },
         /* julia plotlyjs */
-	{ "electron", NULL,       NULL,          0,            0,           1,         1,        -1 },
+	{ "electron", NULL,       "Julia",          0,            0,           1,         1,        -1 },
+	{ "Electron", NULL,       "Julia",          0,            0,           1,         1,        -1 },
 
 	/* { NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 }, */
 	/* { NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 }, */
