@@ -58,7 +58,7 @@ static const Rule rules[] = {
         /* julia plotlyjs */
 	{ "electron", NULL,       "Julia",          0,            0,           1,         1,        -1 },
 	{ "Electron", NULL,       "Julia",          0,            0,           1,         1,        -1 },
-	{ "firefox", NULL,       "Julia",          0,            0,           1,         1,        -1 },
+	{ "firefox", NULL,       NULL,          0,            0,           1,         1,        -1 },
 	/* { NULL,      "spterm",    NULL,       	    SPTAG(0),     1,           1,         0,        -1 }, */
 	/* { NULL,      "spcalc",    NULL,       	    SPTAG(1),     1,           1,         0,        -1 }, */
 };
